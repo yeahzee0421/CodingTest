@@ -2,6 +2,10 @@
 
 [문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/258712) 
 
+### 회고
+생각하지 못했던 부분: 선물 지수 업데이트 할 때 (준 선물)-(받은 선물)을 계산하는 방법만 떠올림 <br/>
+★HashMap에서 key로 value를 +1, -1 해주면서 업데이트 해주면 단순하게 구현이 가능하다.
+
 ### 성능 요약
 
 메모리: 74.6 MB, 시간: 6.25 ms
