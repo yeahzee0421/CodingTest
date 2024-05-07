@@ -6,6 +6,7 @@ public class Main{
 	static int[] dx = {1, -1, 0, 0};
     static int[] dy = {0, 0, -1, 1};
     static int count; 
+    
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
@@ -19,12 +20,14 @@ public class Main{
         int right = 0; // 오른쪽
         map = new char[r][c];
         //'X'는 땅을 나타내고, '.'는 바다를
+        
         for(int i = 0; i < r; i++) {
         	String input = br.readLine();
         	for(int j = 0; j < c; j++) {
         		map[i][j] = input.charAt(j);
         	}
         }
+        
         for(int i = 0; i < r; i++) {
         	for(int j = 0; j < c; j++) {
         		if(map[i][j] == 'X') {
@@ -40,8 +43,8 @@ public class Main{
                              count++;
                          }
                      }
-                     if (count >= 3) { 
-                        map[i][j] = 'S';
+                     if (count >= 3) {  //인접한 3면, 4면이 바다
+                        map[i][j] = 'T'; //tmp 값 
                      }
                      if (map[i][j] == 'X') { // 지도의 가장 위, 아래, 왼쪽, 오른쪽 의 좌표를 갱신
                          up = Math.min(up, i);
@@ -66,5 +69,7 @@ public class Main{
         bw.flush();
         bw.close();
         br.close();
+        
     }
+
 }
