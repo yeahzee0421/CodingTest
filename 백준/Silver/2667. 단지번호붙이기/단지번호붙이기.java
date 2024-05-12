@@ -7,7 +7,7 @@ public class Main {
     static int n;
     static int map[][];
     static boolean visited[][];
-    static ArrayList<Integer> li;
+    static ArrayList<Integer> li; //결과를 담는 리스트 
     static Queue<house> q = new LinkedList<house>();
 
     static class house {
@@ -30,7 +30,7 @@ public class Main {
         int count = 1; // 현재 단지에 속하는 집 개수
 
         while (!queue.isEmpty()) {
-            house currentHouse = queue.poll();
+            house currentHouse = queue.poll(); //현재 위치한 집 
             int cy = currentHouse.y;
             int cx = currentHouse.x;
 
@@ -38,11 +38,11 @@ public class Main {
                 int ny = cy + dy[i];
                 int nx = cx + dx[i];
 
-                if (ny >= 0 && nx >= 0 && ny < n && nx < n) {
+                if (ny >= 0 && nx >= 0 && ny < n && nx < n) { //범위 안에 있으면 
                     if (map[ny][nx] == 1 && !visited[ny][nx]) {
                         queue.offer(new house(ny, nx, number));
-                        visited[ny][nx] = true;
-                        count++;
+                        visited[ny][nx] = true; //방문처리
+                        count++; //해당 단지 집 개수 +1
                     }
                 }
             }
@@ -72,7 +72,7 @@ public class Main {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 if (map[i][j] == 1 && !visited[i][j]) {
-                    bfs(i, j, ++number); 
+                    bfs(i, j, ++number); //  또다른 단지 시작 집 발견하면 bfs 시작해주기 
                 }
             }
         }
